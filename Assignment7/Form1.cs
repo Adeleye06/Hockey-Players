@@ -143,7 +143,7 @@ namespace Assignment6
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {/*
             for (int i = 0; i < counter; i++)
             {
                 hockeyPlayera[i] = null;
@@ -169,6 +169,34 @@ namespace Assignment6
                 hockeyPlayera[counter++] = hockeyPlayer;
             }
             inputFile.Close();
+            */
+
+                for (int i = 0; i < counter; i++)
+                {
+                    hockeyPlayera[i] = null;
+                }
+                counter = 0;
+
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.ShowDialog();
+                String oFile = openFileDialog.FileName;
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream inputFile = new FileStream(oFile, FileMode.Open, FileAccess.Read);
+
+                while (inputFile.Position < inputFile.Length)
+                {
+                    hockeyPlayer = (HockeyPlayers)formatter.Deserialize(inputFile);
+                    String playersName = hockeyPlayer.PlayersName;
+                    int jerseyNo = hockeyPlayer.JerseyNo;
+                    int goalsScored = hockeyPlayer.GoalsScored;
+
+                    hockeyPlayer = new HockeyPlayers(playersName, jerseyNo, goalsScored);
+                    hockeyPlayera[counter++] = hockeyPlayer;
+                }
+
+                inputFile.Close();
+            
+
         }
         [Serializable]
         public class HockeyPlayers
@@ -204,7 +232,7 @@ namespace Assignment6
 
         private void richTextBox1_DoubleClick(object sender, EventArgs e)
         {
-           
+           //you have to do something
         }
     }
 }
