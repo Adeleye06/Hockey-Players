@@ -10,7 +10,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
 namespace Assignment6
@@ -233,6 +232,26 @@ namespace Assignment6
         private void richTextBox1_DoubleClick(object sender, EventArgs e)
         {
            //you have to do something
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            sortPlayers();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            sortPlayers();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            sortPlayers();
+        }
+
+        private void sortPlayers()
+        {
+
         }
     }
 }
